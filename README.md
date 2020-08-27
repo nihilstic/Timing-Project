@@ -1,5 +1,5 @@
 # Timing-Project
 
-![image](uploads/72c442c4e3953ca0b6d8eb30f5ef27b9/en-tete-wiki.png
+![image](https://github.com/nihilstic/Timing-Project/blob/master/example)
 
 Timing-project vous permet de savoir combien de temps il vous reste avant de partir du travail.
