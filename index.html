@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+  <title>Timing Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="glitch" id="counter"></div>
+    <div class="glow" id="counter"></div>
+    <p class="subtitle">Timing avant débauche</p>
+  </div>
+  <div class="scanlines"></div>
+
+  <script>
+    var countDownMatin = new Date("Oct 4, 2077 12:00:00").getTime();
+    var countDownSoir = new Date("Oct 4, 2077 18:00:00").getTime();
+
+    var x = setInterval(function () {
+
+      var currentHour = new Date().getHours();
+      if (currentHour >= 9 && currentHour <= 12) {
+
+        var current = new Date().getTime();
+
+        var distance = countDownMatin - current;
+
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("counter").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("counter").innerHTML = "not at work";
+        }
+      } else {
+        clearInterval(x);
+        document.getElementById("counter").innerHTML = "not at work";
+      }
+
+      if (currentHour >= 14 && currentHour <= 18) {
+
+        var current = new Date().getTime();
+
+        var distance = countDownSoir - current;
+
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("counter").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("counter").innerHTML = "not at work";
+        }
+      } else {
+        clearInterval(x);
+        document.getElementById("counter").innerHTML = "not at work";
+      }
+    }, 1000);
+  </script>
+</body>
+
+</html>
